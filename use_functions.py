@@ -33,20 +33,30 @@
 
 Для реализации основного меню можно использовать пример ниже или написать свой
 """
-
+money = 0
+lst_shop = []
+lst_m = []
 while True:
     print('1. пополнение счета')
     print('2. покупка')
     print('3. история покупок')
     print('4. выход')
 
-    choice = input('Выберите пункт меню')
+    choice = input('Выберите пункт меню: ')
     if choice == '1':
-        pass
+        money += float(input('Введите сумму на сколько пополнить счет: '))
     elif choice == '2':
-        pass
+        money_shop = float(input('Введите сумму покупки: '))
+        if money_shop > money:
+            print('Денег не хватает')
+        else:
+            money -= money_shop
+            lst_shop.append(input('Введите название покупки: '))
+            lst_m.append(money_shop)
+            print(lst_m)
     elif choice == '3':
-        pass
+        for i in range(len(lst_m)):
+            print(lst_shop[i] + ':', lst_m[i])
     elif choice == '4':
         break
     else:
